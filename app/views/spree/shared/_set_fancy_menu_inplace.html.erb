@@ -1,0 +1,14 @@
+<script>
+
+	$().ready(function(){
+		$("#fancy-menu li").hover(
+		    function(){
+		        $(this).children('ul').hide();
+		        $(this).children('ul').slideDown('fast');
+		    },
+		    function () {
+		        $('ul', this).hide();            
+		    });
+	});
+
+</script>

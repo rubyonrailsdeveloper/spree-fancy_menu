@@ -1,0 +1,34 @@
+<%= render :partial => 'spree/admin/shared/configuration_menu' %>
+
+<% content_for :page_title do %>
+  <%=t(:menu_configuration)%>
+<% end %>
+
+<%= render :partial => 'inplace' %>
+
+<% if @errors %>
+  <%= render :partial => 'errors' %>
+<% end %>
+
+<%= render :partial => 'menu_preview' %>
+
+<%= button_tag(:type => 'button', :id => "button-collapse") do %>
+    <i class="icont-circle-arrow-up"></i>
+<% end %>
+
+<div id="taxons-tree">
+	<%= render(:partial => 'roots', :locals => { :taxonomies => @taxonomies, :d => 0 }) %>
+</div>
+
+<div id="admin-fancy-menu-controls">
+	<%= button_tag(:type => 'button', :id => "button-ready") do %>
+    <i class="icon-thumbs-up"></i>
+  	<span>Ready</span>
+  <% end %>
+</div>
+
+<div id="admin-fancy-menu-form">
+	<%= form_tag(save_admin_fancy_menu_settings_path()) do %>
+    <div id="form-fields"></div>
+  <% end %>
+</div>

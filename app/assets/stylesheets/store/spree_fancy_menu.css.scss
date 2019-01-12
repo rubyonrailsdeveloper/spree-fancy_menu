@@ -1,0 +1,186 @@
+/*
+ *= require spree/frontend
+*/
+
+/*
+Sass. Variables and Mixins
+*/
+
+$spree_blue: #5498DA;
+$spree_green: #9FC820;
+$gray_disabled: #CCCCCC;
+$shadow_color: #ECECEC;
+
+@mixin item-hover {
+  cursor: pointer;
+  background-color: $spree_green;
+}
+
+/*
+Utils
+*/
+
+.fancy-width{
+  width: 100%;
+}
+
+.clear-fancy{
+  clear: both;
+}
+
+.divider{
+  margin: 0 0.4em;
+  color: $gray_disabled;
+}
+
+/*
+Fancy Menu Breadcrumbs
+*/
+
+#fancy-breadcrumbs{
+    list-style-type: none;
+    color: $spree_blue;
+
+    li {
+      float: left;
+      margin: 3px;
+
+       a {
+        &:hover{
+          color: $spree_green;
+        }
+       }
+    }
+
+    #breadcrumbs-item-selected {
+      color: $gray_disabled !important;
+    }
+}
+
+#fancy-menu {
+  height: 39px;
+  font-family: "Open Sans", "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
+	text-transform: uppercase;
+	font-size: 12px;
+  background: $spree_blue;
+  border: 1px solid $spree_blue;
+  border-radius: 3px;
+  min-width:500px;
+  margin-left: 0px;
+  padding-left: 0px;
+
+  ul {
+    background: lighten($spree_blue, 5%);
+    padding: 0px;
+    border-bottom: 1px solid $spree_blue;
+    border-right: 1px solid $spree_blue;
+    border-left:1px solid $spree_blue;
+    border-radius: 0px 0px 3px 3px;
+    box-shadow: 2px 2px 3px $shadow_color;
+    -webkit-box-shadow: 2px 2px 3px $shadow_color;
+    -moz-box-shadow:2px 2px 3px $shadow_color;
+    width:170px;
+
+    /* Submenus */
+    display: none;
+    visibility: hidden;
+    position: absolute;
+    top: 40px;
+
+    ul{
+      top: 0px;
+      left: 170px;
+      display: none;
+      visibility: hidden;
+      border: 1px solid $spree_blue;
+
+      ul{
+        top: 0px;
+        left: 170px;
+        display: none;
+        visibility: hidden;
+        border: 1px solid $spree_blue;
+      }
+    }
+    /* End Submenus */
+
+    li {
+      border-right: none;
+      border-bottom: 2px solid $spree_blue;
+      width: 170px;
+      height: 39px;
+      display: block;
+      visibility: visible;
+
+      a {
+        border-right: none;
+        border-bottom: 1px solid #FFFFFF;
+      }
+
+      &:hover {
+        background: lighten($spree_green, 10%);
+      }
+
+      &:last-child{
+        border-bottom: none;
+      }
+    }
+  }
+
+  li {
+    list-style: none;
+    display: block;
+    float: left;
+    height: 40px;
+    position: relative;
+    border-right: 1px solid #52BDB5;
+    border-radius: 3px;
+
+    a {
+      padding: 0px 10px 0px 10px;
+      margin: 0px 0;
+      line-height: 40px;
+      text-decoration: none;
+      border-right: 1px solid #389E96;
+      height: 40px;
+      color: #FFF;
+      text-shadow: 1px 1px 1px #66696B;
+      display: block;
+    }
+
+    &:hover {
+      @include item-hover;
+
+      a {
+        border-bottom: none;
+      }
+
+      > ul{
+          display: block;
+          visibility: visible;
+      }
+    }
+  }
+}
+
+/*
+Text, Icons & Images
+*/
+
+.menu-item-link-active {
+    background: $spree_green;
+}
+
+[class^="icon-"],
+[class*=" icon-"] {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    line-height: 12px;
+    background-repeat: no-repeat;
+}
+
+.icon-chevron-right {
+    background-position: -456px -72px;
+    margin-left: 70px;
+}
